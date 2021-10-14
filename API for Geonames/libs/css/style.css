@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#pre-loader {
+  display: inline-block;
+  margin-left: 50%;
+  margin-right: 50%;
+  border: 16px solid #f3f3f3;
+  border-radius: 40%;
+  border-top: 16px solid #5684a3;
+  border-right: 16px solid red;
+  border-bottom: 16px solid green;
+  width: 40px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#table-wrapper {
+  display: none;
+}
+body {
+  background-image: url("../img/nasa.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+h1,
+p {
+  color: white;
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+/* table */
+table {
+  background-color: black;
+  opacity: 0.8;
+}
+table {
+  color: aliceblue;
+  margin: 30px;
+  width: 90%;
+  border-collapse: collapse;
+}
+table,
+td {
+  padding: 20px;
+  color: aliceblue;
+  border: 1px solid aliceblue;
+  text-align: center;
+}
+
+td,
+p {
+  font-size: 20px;
+}
+th,
+.ApiName {
+  font-size: 30px;
+  font-weight: bold;
+  height: 60px;
+  border: 1px solid aliceblue;
+}
+
+.button {
+  width: 100%;
+  padding: 5px;
+  background-color: aqua;
+  color: black;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: red;
+}
+
+.tableTitle {
+  font-size: 1.5em;
+}
+
+.results {
+  font-weight: bold;
+}

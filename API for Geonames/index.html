@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Geonames Api">
+      <meta name="keywords" content="HTML, CSS, JavaScript, PHP, AJax, Geonames, Api, jquery">
+      <meta name="author" content="Liam Cawley">
+      <link rel="shortcut icon" href="libs/img/favicon.ico">
+	  <link rel="stylesheet" href="libs/css/style.css">
+	  <title>Geonames API Project</title>
+   </head>
+
+   <body onload="pre_Loader()">
+      <header>
+         <h1>Geoname API Table</h1>
+         <p>
+            This task will utilize three api's from geonames to produce results on
+            the information of a country, the current time and weather of a chosen
+            country.
+         </p>
+	  </header>
+	  
+      
+      <div id="pre-loader"></div>
+      <div id="table-wrapper">
+      <!--this is the API table
+         ========================================================================================
+         -->	
+      <table>
+         <thead>
+            <tr>
+               <th>API Name</th>
+               <th>API Description</th>
+               <th>Run</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!--This is the form for country info
+               ===========================================
+               ===========================================
+               -->
+            <tr>
+               <td class="ApiName">Country Info</td>
+               <td class="apiDescription">
+                  This Api generates information on a given country.<br>Please choose one of the countries from the drop down menu.<br>
+                  You are choosing:
+                  <br>
+                  <br>
+                  <div class="form">
+                     <select name="Country" id="selCountry">
+                        <option value="GB">Great Britian</option>
+                        <option value="IT">Italy</option>
+                        <option value="ES">Spain</option>
+                     </select>
+                  </div>
+               </td>
+               <td class="apiRun">
+                  <button class="button" id="btnCountryRun">Submit</button>
+               </td>
+               <!--http://api.geonames.org/countryInfoCSV?lang=en&country=DE&username=demo-->
+               <!--end of country info
+                  ==============================================================================
+                  ================================================================================-->
+               <!--timezone
+                  ==============================================================-->
+            <tr>
+               <td class="ApiName">
+                  Timezone
+               </td>
+               <td>
+                  This Api takes latitude and longitude coordinates and returns the current time for that lacation<br>
+                  To get you startes try:<br>
+                  London: lat = 51.50 and long = 0.12
+                  <br>
+                  Rome: lat = 41.90 long = 12.49 
+                  <br>
+                  Barcelona: lat = 41.38 long = 2.16
+                  <br>
+                  <br>
+                  <label for="lat">Latitude:</label>
+                  <input type="number" name="lat" id="lat" value="55.9">
+                  <br>
+                  <br>
+                  <label for="long">Longitude:</label>
+                  <input type="number" name="lng" id="lng" value="-3.2">
+                  <br>
+                  <br>
+               </td>
+               <td>
+                  <button class="button" id="btnTimezoneRun">Submit</button>
+               </td>
+            </tr>
+            <!--end of timezone
+               -->
+            <!--this is for the weather
+               =============================================================-->
+            <tr>
+               <td class="ApiName">Weather</td>
+               <td>
+                  This APi takes in North, East, South and west coordinates. This is known as bounding boxes.<br>
+                  To get started please try:<br>
+                  London: North = 51.686, East = 0.236 South = 51.28, West = -0.489
+                  <br>
+                  <br>
+                  <label for="north">North:</label>
+                  <input type="number" name="north" id="north" value="51.686" /><br>
+                  <br>
+                  <label for="east">East:</label>
+                  <input type="number" name="east" id="east" value="0.236" /><br>
+                  <br>
+                  <label for="south">South:</label>
+                  <input type="number" name="south" id="south" value="51.28" /><br>
+                  <br>
+                  <label for="west">West:</label>
+                  <input type="number" name="west" id="west" value="-0.489" /><br />
+               </td>
+               <td>
+                  <button class="button" id="btnWeatherRun">Submit</button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <br >
+      <!--This is the results table
+         =======================================================================================
+         =====-->
+      <div id="results">
+         <table>
+            <!--Country Info Results
+               =======================================================================================
+                =====-->
+            <th class="tableTitle">Country Information</th>
+            <tr>
+               <td class="results">Continent:</td>
+               <td id="Continent"></td>
+            </tr>
+            <tr>
+               <td class="results">Capital:</td>
+               <td id="Capital"></td>
+            </tr>
+            <tr>
+               <td class="results">Languages:</td>
+               <td id="Languages"></td>
+            </tr>
+            <tr>
+               <td class="results">Population:</td>
+               <td id="Population"></td>
+            </tr>
+            <tr>
+               <td class="results">Area (km<sup>2</sup>):</td>
+               <td id="Area"></td>
+            </tr>
+         </table>
+         <table>
+            <!--Time Zone Results
+               =======================================================================================
+                =====-->
+            <th class="tableTitle">Timezone Results</th>
+            <tr>
+               <td class="results">Country Name:</td>
+               <td id="outputCountryName"></td>
+            </tr>
+            <tr>
+               <td class="results">country ID:</td>
+               <td id="outputTimezoneId"></td>
+            </tr>
+            <tr>
+               <td class="results">Time:</td>
+               <td id="outputTime"></td>
+               
+            </tr>
+            <tr>
+               <td class="results">Sunrise:</td>
+               <td id="outputSunrise"></td>
+            </tr>
+            <tr>
+               <td class="results">Sunset:</td>
+               <td id="outputSunset"></td>
+            </tr>
+         </table>
+         <table>
+            <!--Weather Results
+               =======================================================================================
+                =====-->
+            <th class="tableTitle">Weather Results</th>
+            <tr>
+               <td class="results">Station Name:</td>
+               <td id="outputDate"></td>
+            </tr>
+            <tr>
+               <td class="results">Station Name:</td>
+               <td id="outputStationName"></td>
+            </tr>
+            <tr>
+               <td class="results">Temperature Degrees:</td>
+               <td id="outputTemperature"></td>
+            </tr>
+            <tr>
+               <td class="results">Humidity:</td>
+               <td id="outputHumidity"></td>
+            </tr>
+            <tr>
+               <td class="results">Clouds:</td>
+               <td id="outweatherCondition"></td>
+            </tr>
+            <tr>
+               <td class="results">Wind Speed Kmh:</td>
+               <td id="outputWindSpeed"></td>
+            </tr>
+         </table>
+      </div>
+      <div id="preloader"></div>
+      <script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+      <script type="application/javascript" src="libs/js/app.js"></script>
+   </body>
+</html>
