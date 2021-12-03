@@ -1,11 +1,11 @@
-# Geonames Api
+# Geonames API
 
-The purpose of this project was to create a table web page using html that would take a users interaction and retrive data from a Api. The Api used was Geonames Api for country information, weather and timeZone.
-
---------------------------------------------------------------------------------------------
-
-This project used HTML, CSS , JS, PHP, json and a technic called Ajax.
+The purpose of this project was to create a table web page using HTML that would take a users interaction and retrieve data from an API. The API used was Geonames Api for country information, weather and timeZone.
 
 --------------------------------------------------------------------------------------------
 
-From this project i was able to put skills learn to use as well as gaining a better understanding of PHP and json.
+This project used HTML, CSS, JS, PHP, JSON and a technique called Ajax.
+
+--------------------------------------------------------------------------------------------
+
+From this project, I was able to put skills learned to use as well as gain a better understanding of PHP and JSON.
